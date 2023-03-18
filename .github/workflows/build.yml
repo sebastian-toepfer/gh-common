@@ -3,7 +3,7 @@ name: build
 on:
   workflow_call:
     inputs:
-      sonar.projektKey:
+      sonar-projektKey:
         type: string
         required: true 
 
@@ -41,7 +41,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-            mvn -B -Dsonar.projectKey=${{ inputs.sonar.projektKey }} \
+            mvn -B -Dsonar.projectKey=${{ inputs.sonar-projektKey }} \
                 clean \
                 install \
                 org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
