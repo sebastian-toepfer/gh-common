@@ -19,7 +19,7 @@ jobs:
       - name: set up JDK
         uses: actions/setup-java@v3
         with:
-          java-version: 17.0.7
+          java-version: 17
           distribution: adopt-hotspot
 
       - name: cache SonarCloud packages
