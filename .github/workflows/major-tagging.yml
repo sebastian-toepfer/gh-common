@@ -6,6 +6,9 @@ on:
     tags:
       - v**
 
+permissions:
+  contents: write
+
 jobs:
   tag:
     name: move major tag
