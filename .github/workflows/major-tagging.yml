@@ -34,7 +34,7 @@ jobs:
             echo "Moving major tag '$MAJOR_TAG' to the same commit as '$CURRENT_TAG' tag"
             git push --delete origin $MAJOR_TAG
           else
-            git push --delete origin $MAJOR_TAG
+            echo "'$MAJOR_TAG' tag does not exists and will be created at the same commit as '$CURRENT_TAG' tag"
           fi
           git tag $MAJOR_TAG
           git push origin $MAJOR_TAG
