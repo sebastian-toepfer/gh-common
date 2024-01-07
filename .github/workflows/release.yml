@@ -81,7 +81,8 @@ jobs:
                   tag_name: tag_name,
                   name: release_name,
                   draft: false,
-                  target_commitish: process.env.BRANCH_NAME
+                  target_commitish: process.env.BRANCH_NAME,
+                  generate_release_notes: true
                 });
 
                 // Get the ID, html_url, and upload URL for the created Release from the response
