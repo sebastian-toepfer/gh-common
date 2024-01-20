@@ -41,7 +41,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-            mvn -B -Dsonar.projectKey=${{ inputs.sonar-projektKey }} \
+            mvn --batch-mode \
+                --no-transfer-progress \
+                -Dsonar.projectKey=${{ inputs.sonar-projektKey }} \
                 clean \
                 install \
                 org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
