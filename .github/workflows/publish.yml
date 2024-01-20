@@ -49,4 +49,4 @@ jobs:
 
       - name: build and publish
         run: |
-          mvn -B -Possrh deploy
+          mvn --batch-mode --no-transfer-progress -Possrh deploy
