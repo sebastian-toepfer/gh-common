@@ -38,7 +38,7 @@ jobs:
 
       - name: set release version number
         run: |
-          mvn -DnewVersion=${{ inputs.version }} versions:set
+          mvn --batch-mode --no-transfer-progress -DnewVersion=${{ inputs.version }} versions:set
           git commit -a -m "bump version to ${{ inputs.version }}"
 
       - name: temporarily disable "include administrators" branch protection for ${{ github.event.repository.default_branch }}
@@ -100,7 +100,7 @@ jobs:
 
       - name: bump version for next development
         run: |
-          mvn -B --non-recursive -Pbump-minor
+          mvn --batch-mode --no-transfer-progress --non-recursive -Pbump-minor
           MVN_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
           git commit -a -m "bump version to ${MVN_VERSION}"
 
