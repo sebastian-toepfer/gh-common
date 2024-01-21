@@ -10,6 +10,9 @@ on:
         type: string
         default: bump-minor
         description: maven profile for the bump of the next development version
+      javaVersion:
+        type: number
+        default: 17
 
 jobs:
   release:
@@ -30,7 +33,7 @@ jobs:
       - name: set up JDK
         uses: actions/setup-java@v4
         with:
-          java-version: 17
+          java-version: ${javaVersion}
           distribution: zulu
 
       - name: cache maven packages

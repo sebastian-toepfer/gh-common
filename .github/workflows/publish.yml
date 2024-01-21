@@ -5,7 +5,10 @@ on:
     inputs:
       tag_name:
         type: string
-        required: true 
+        required: true
+      javaVersion:
+        type: number
+        default: 17
 
 jobs:
   publish:
@@ -25,7 +28,7 @@ jobs:
       - name: set up JDK
         uses: actions/setup-java@v4
         with:
-          java-version: 17
+          java-version: ${javaVersion}
           distribution: zulu
 
       - name: cache maven packages
