@@ -6,6 +6,10 @@ on:
       version:
         type: string
         required: true
+      versionBumpType:
+        type: string
+        default: bump-minor
+        description: maven profile for the bump of the next development version
 
 jobs:
   release:
@@ -100,7 +104,7 @@ jobs:
 
       - name: bump version for next development
         run: |
-          mvn --batch-mode --no-transfer-progress --non-recursive -Pbump-minor
+          mvn --batch-mode --no-transfer-progress --non-recursive -P${versionBumpType}
           MVN_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
           git commit -a -m "bump version to ${MVN_VERSION}"
 
