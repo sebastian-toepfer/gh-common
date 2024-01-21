@@ -33,7 +33,7 @@ jobs:
       - name: set up JDK
         uses: actions/setup-java@v4
         with:
-          java-version: ${javaVersion}
+          java-version: ${{ inputs.javaVersion }}
           distribution: zulu
 
       - name: cache maven packages
@@ -107,7 +107,7 @@ jobs:
 
       - name: bump version for next development
         run: |
-          mvn --batch-mode --no-transfer-progress --non-recursive -P${versionBumpType}
+          mvn --batch-mode --no-transfer-progress --non-recursive -P${{ inputs.versionBumpType }}
           MVN_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
           git commit -a -m "bump version to ${MVN_VERSION}"
 

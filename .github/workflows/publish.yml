@@ -28,7 +28,7 @@ jobs:
       - name: set up JDK
         uses: actions/setup-java@v4
         with:
-          java-version: ${javaVersion}
+          java-version: ${{ inputs.javaVersion }}
           distribution: zulu
 
       - name: cache maven packages
