@@ -56,7 +56,7 @@ jobs:
           enforce_admins: false
 
       - name: push to ${{ github.event.repository.default_branch }}
-        uses: ad-m/github-push-action@v0.8.0
+        uses: ad-m/github-push-action@v1.0.0
         with:
           github_token: ${{ secrets.unprotect_the_protected }}
           branch: ${{ github.event.repository.default_branch }}
@@ -119,7 +119,7 @@ jobs:
           enforce_admins: false
 
       - name: push to ${{ github.event.repository.default_branch }}
-        uses: ad-m/github-push-action@v0.8.0
+        uses: ad-m/github-push-action@v1.0.0
         with:
           github_token: ${{ secrets.unprotect_the_protected }}
           branch: ${{ github.event.repository.default_branch }}
