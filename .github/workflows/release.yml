@@ -12,7 +12,7 @@ on:
         description: maven profile for the bump of the next development version
       javaVersion:
         type: number
-        default: 17
+        default: 21
 
 jobs:
   release:
