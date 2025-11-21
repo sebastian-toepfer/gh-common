@@ -14,6 +14,6 @@ jobs:
     name: move major tag
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - uses: phwt/major-tagging-action@v1
